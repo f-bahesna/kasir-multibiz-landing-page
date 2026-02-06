@@ -11,7 +11,7 @@ import { ArrowRight, ChevronRight, BarChart3, TrendingUp, ShieldCheck } from 'lu
           Solusi #1 Untuk Pengusaha Multi-Cabang
         </div>
         <h1>
-          Kelola Banyak Bisnis, <br>
+          Kelola Banyak Bisnis, <br />
           <span class="text-accent">Satu Dashboard.</span>
         </h1>
         <p class="subtitle">
@@ -41,11 +41,11 @@ import { ArrowRight, ChevronRight, BarChart3, TrendingUp, ShieldCheck } from 'lu
         <div class="visual-container">
           <!-- Network Diagram Image -->
           <div class="diagram-wrapper">
-            <img src="@/assets/dashboard-diagram.png" alt="Kasir Multibiz Network Diagram" class="diagram-img" />
+            <img src="../assets/dashboard-diagram.png" alt="Kasir Multibiz Network Diagram" class="diagram-img" />
             
             <!-- Business Owner Image Overlay (Trust Badge) -->
             <div class="owner-overlay">
-              <img src="@/assets/business-owner.png" alt="Happy Business Owner" class="owner-img" />
+              <img src="../assets/business-owner.png" alt="Happy Business Owner" class="owner-img" />
             </div>
           </div>
         </div>

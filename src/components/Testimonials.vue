@@ -13,7 +13,7 @@ const testimonials = [
     name: 'Hendra Tjahjadi',
     role: 'CEO "Glodok Elektronik Maju" (5 Cabang)',
     image: 'https://ui-avatars.com/api/?name=Hendra+T&background=0D9488&color=fff',
-    content: 'Mengelola 5 cabang toko elektronik dengan ribuan SKU dulunya tantangan besar. Dengan Kasir Multibiz, integrasi data antar cabang berjalan mulus. Sistem ini memberikan transparansi, keamanan data, dan kontrol penuh yang kami butuhkan untuk keberlanjutan bisnis keluarga.',
+    content: 'Saya kelola 5 cabang toko elektronik dengan ribuan SKU dulunya tantangan besar. Dengan Kasir Multibiz, integrasi data berjalan mulus. Sistemnya memberikan transparansi, data aman, dan kontrol penuh yang kami butuhkan untuk bisnis keluarga.',
     type: 'chinese'
   }
 ]
