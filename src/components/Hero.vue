@@ -38,36 +38,15 @@ import { ArrowRight, ChevronRight, BarChart3, TrendingUp, ShieldCheck } from 'lu
       </div>
 
       <div class="hero-visual">
-        <div class="visual-card main-card">
-          <!-- Abstract Dashboard UI Mockup -->
-          <div class="card-header">
-            <div class="card-title">Total Pendapatan (Bulan Ini)</div>
-            <div class="card-value">Rp 1.250.000.000</div>
-            <div class="card-trend positive">+12.5% vs bulan lalu</div>
-          </div>
-          <div class="chart-mockup">
-            <div class="bar" style="height: 40%"></div>
-            <div class="bar" style="height: 60%"></div>
-            <div class="bar" style="height: 45%"></div>
-            <div class="bar" style="height: 80%"></div>
-            <div class="bar active" style="height: 95%"></div>
-            <div class="bar" style="height: 70%"></div>
-          </div>
-        </div>
-        
-        <div class="visual-card float-card branch-a">
-          <div class="branch-icon bg-orange">☕</div>
-          <div>
-            <div class="branch-name">Kopi Senja - Cabang 1</div>
-            <div class="branch-status">Online • Ramai</div>
-          </div>
-        </div>
-
-        <div class="visual-card float-card branch-b">
-          <div class="branch-icon bg-blue">📱</div>
-          <div>
-            <div class="branch-name">Gadget Store - Pusat</div>
-            <div class="branch-status">Online • Normal</div>
+        <div class="visual-container">
+          <!-- Network Diagram Image -->
+          <div class="diagram-wrapper">
+            <img src="@/assets/dashboard-diagram.png" alt="Kasir Multibiz Network Diagram" class="diagram-img" />
+            
+            <!-- Business Owner Image Overlay (Trust Badge) -->
+            <div class="owner-overlay">
+              <img src="@/assets/business-owner.png" alt="Happy Business Owner" class="owner-img" />
+            </div>
           </div>
         </div>
       </div>
@@ -84,7 +63,7 @@ import { ArrowRight, ChevronRight, BarChart3, TrendingUp, ShieldCheck } from 'lu
   position: relative;
   padding-top: calc(var(--header-height) + 4rem);
   padding-bottom: 6rem;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-content {
@@ -168,105 +147,54 @@ h1 {
 /* Visual Mockup */
 .hero-visual {
   position: relative;
-  height: 400px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
 }
 
-.visual-card {
-  background: white;
+.visual-container {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+}
+
+.diagram-wrapper {
+  position: relative;
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.main-card {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
+  /* Removed heavy shadow/border as the diagram is cleaner illustration */
+  padding: 10px;
   z-index: 10;
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
-}
-
-.card-title {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.card-value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-}
-
-.card-trend {
-  font-size: 0.875rem;
-  color: var(--color-success);
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-.chart-mockup {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 150px;
-  gap: 1rem;
-}
-
-.bar {
-  flex: 1;
-  background: #E2E8F0;
-  border-radius: 4px;
-  transition: height 1s ease;
-}
-
-.bar.active {
-  background: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.float-card {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  z-index: 20;
-  min-width: 200px;
+  transition: transform 0.3s ease;
   animation: float 6s ease-in-out infinite;
 }
 
-.branch-a {
-  bottom: -20px;
-  left: -20px;
-  animation-delay: 0s;
+.diagram-img {
+  width: 100%;
+  display: block;
+  /* Ensure image looks clean against background */
+  filter: drop-shadow(0 10px 25px rgba(59, 130, 246, 0.15));
 }
 
-.branch-b {
-  top: -20px;
+.owner-overlay {
+  position: absolute;
+  bottom: 0px;
   right: -20px;
-  animation-delay: 3s;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid white;
+  box-shadow: var(--shadow-xl);
+  z-index: 20;
+  animation: float-slow 7s ease-in-out infinite;
 }
 
-.branch-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
+.owner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
-.bg-orange { background: #fee2e2; color: #ef4444; }
-.bg-blue { background: #dbeafe; color: #2563eb; }
-
-.branch-name { font-weight: 600; font-size: 0.875rem; }
-.branch-status { font-size: 0.75rem; color: var(--color-text-muted); }
 
 /* Background Blobs */
 .bg-blur {
@@ -304,6 +232,11 @@ h1 {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 @media (min-width: 768px) {
